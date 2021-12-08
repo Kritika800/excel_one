@@ -1,0 +1,15 @@
+import pandas as pd
+df=pd.read_excel('C:/Users/DELL-PC/Downloads/sample1.xlsx')
+d=df.to_dict(orient='split')
+data=d['data']
+parsedData={}
+
+for row in data:
+    year=row[3]
+    value=row[4]
+
+    if year in parsedData.keys():
+        parsedData[year]+=0
+    else:
+        parsedData[year]=value
+print(parsedData)
